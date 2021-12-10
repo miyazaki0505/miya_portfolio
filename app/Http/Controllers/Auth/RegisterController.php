@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -49,9 +50,19 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'last_name' => ['required', 'string', 'max:16'],
+            'first_name' => ['required', 'string', 'max:16'],
+            'last_name_ruby' => ['required', 'string', 'max:16'],
+            'first_name_ruby' => ['required', 'string', 'max:16'],
+            'birth_year' => ['required', 'integer'],
+            'birth_month' => ['required', 'integer'],
+            'birth_day' => ['required', 'integer'],
+            'email' => ['required', 'string', 'email', 'max:128', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'work_location' => ['required', 'integer'],
+            'occupation' => ['required', 'integer'],
+            'language' => ['required', 'integer'],
+            'about_myself' => ['required', 'text'],
         ]);
     }
 
@@ -64,9 +75,19 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'last_name' => $data['last_name'],
+            'first_name' => $data['first_name'],
+            'last_name_ruby' => $data['last_name_ruby'],
+            'first_name_ruby' => $data['first_name_ruby'],
+            'birth_year' => $data['birth_year'],
+            'birth_month' => $data['birth_month'],
+            'birth_day' => $data['birth_day'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'work_location' => $data['work_location'],
+            'occupation' => $data['occupation'],
+            'language' => $data['language'],
+            'about_myself' => $data['about_myself'],
         ]);
     }
 }
