@@ -62,7 +62,7 @@ class RegisterController extends Controller
             'work_location' => ['required', 'integer'],
             'occupation' => ['required', 'integer'],
             'language' => ['required', 'integer'],
-            'about_myself' => ['required', 'text'],
+            'about_myself' => ['required', 'string'],
         ]);
     }
 

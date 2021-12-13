@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->integer('work_location');
             $table->integer('occupation');
             $table->integer('language');
-            $table->text('about_myself');
+            $table->string('about_myself');
             $table->rememberToken();
             $table->timestamp('deleted_at');
             $table->timestamps();
