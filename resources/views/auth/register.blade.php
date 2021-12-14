@@ -9,25 +9,25 @@
     <div class="row mt-5 mb-5">
         <div class="col-sm-6 offset-sm-3">
 
-            <form class="register-form" action="/signup.post" method="post">
+            <form method="post" action="/signup" class="register-form">
 
                 @csrf
             
                 <div class="font-weight-bold"><label for="name">お名前</label></div>
                 <div class="form-group d-flex justify-content-sm-start">
-                    <div class="m-2">姓 </div> 
+                    <div class="m-2">姓　</div> 
                     <input typy="text" name="last_name" value="{{ old('last_name') }}" class="form-control">
                     
-                    <div class="m-2">名 </div> 
+                    <div class="m-2">名　</div> 
                     <input typy="text" name="first_name" value="{{ old('first_name') }}" class="form-control">
                 </div>
 
                 <div class="font-weight-bold"><label for="ruby">ふりがな</label></div>
                 <div class="form-group d-flex justify-content-start">
-                    <div class="m-2">せい </div>
+                    <div class="m-2">せい　</div>
                     <input typy="text" name="last_name_ruby" value="{{ old('last_name_ruby') }}" class="form-control" style="width:50%;">
                 
-                    <div class="m-2">めい </div>
+                    <div class="m-2">めい　</div>
                     <input typy="text" name="first_name_ruby" value="{{ old('first_name_ruby') }}" class="form-control" style="width:50%;">
                 </div>
 
