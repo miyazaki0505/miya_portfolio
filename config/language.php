@@ -1,6 +1,6 @@
 <?php 
 
-return array(
+return [
     '0' => '未選択',
     '1' => 'Java', 
     '2' => 'PHP', 
@@ -13,6 +13,4 @@ return array(
     '9' => 'Go',
     '10' => 'Kotlin', 
     '11' => 'HTML5/CSS3'
-);
-
-?>
+];
