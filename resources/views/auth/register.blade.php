@@ -60,7 +60,7 @@
                     <div class="font-weight-bold"><label for="work_location">希望勤務地</label></div>
                     <select class="form-control" name="work_location">                          
                         @foreach(config('work_location') as $key => $work_location)
-                            <option value="{{ $key }}">{{ $work_location }}</option>
+                            <option value="{{ $key }}" @if( (int)old('work_location') === $key ) selected @endif>{{ $work_location }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -69,7 +69,7 @@
                     <div class="font-weight-bold"><label for="occupation">職種</label></div>
                     <select class="form-control" name="occupation">                          
                         @foreach(config('occupation') as $key => $occupation)
-                            <option value="{{ $key }}">{{ $occupation }}</option>
+                            <option value="{{ $key }}" @if( (int)old('occupation') === $key ) selected @endif>{{ $occupation }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -78,14 +78,14 @@
                     <div class="font-weight-bold"><label for="language">言語</label></div>
                     <select class="form-control" name="language">                          
                         @foreach(config('language') as $key => $language)
-                            <option value="{{ $key }}">{{ $language }}</option>
+                            <option value="{{ $key }}" @if( (int)old('language') === $key ) selected @endif>{{ $language }}</option>
                         @endforeach
                     </select>
                 </div>
 
                 <div class="form-group">
                     <div class="font-weight-bold"><label for="about_myself">自己PR</label></div>
-                    <textarea name="about_myself" rows="10" cols="60" value="{{ old('about_myself') }}" class="form-control"></textarea>    
+                    <textarea name="about_myself" rows="10" cols="60" class="form-control">{{ old('about_myself') }}</textarea>    
                 </div>
 
                 <div class="text-center"><input type="submit" class="btn btn-secondary mt-2" value="新規登録"></div>
