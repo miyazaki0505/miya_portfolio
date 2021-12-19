@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->integer('language');
             $table->text('about_myself');
             $table->rememberToken();
+
             $table->timestamps();
         });
     }
