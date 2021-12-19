@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CreateUsersTable extends Migration
 {
@@ -29,7 +30,11 @@ class CreateUsersTable extends Migration
             $table->integer('language');
             $table->text('about_myself');
             $table->rememberToken();
+<<<<<<< HEAD
             $table->softDeletes();
+=======
+            $table->SoftDeletes();
+>>>>>>> feature/miya/register
             $table->timestamps();
         });
     }
