@@ -30,11 +30,7 @@ class CreateUsersTable extends Migration
             $table->integer('language');
             $table->text('about_myself');
             $table->rememberToken();
-<<<<<<< HEAD
-            $table->softDeletes();
-=======
             $table->SoftDeletes();
->>>>>>> feature/miya/register
             $table->timestamps();
         });
     }
