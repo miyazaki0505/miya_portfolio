@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item"><a href="signup" class="nav-link">新規登録</a></li>
+                <li class="nav-item"><a href="{{ config('app.url'). '/signup' }}" class="nav-link">新規登録</a></li>
                 <li class="nav-item"><a href="" class="nav-link">ログイン</a></li>
                 <li class="nav-item"><a href="" class="nav-link">検索</a></li>
             </ul>
