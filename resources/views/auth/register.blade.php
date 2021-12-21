@@ -92,6 +92,8 @@
             
             </form>
 
+            <p class="text-center mt-3"><a href="{{ config('app.url'). '/login' }}" class="login_link" style="color: grey;">アカウントをお持ちの方はこちら</a></p>
+
         </div>
     </div>
 
