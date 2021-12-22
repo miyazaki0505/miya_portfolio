@@ -11,6 +11,8 @@
 
         <form method="post" action="/login" class="login-form">
 
+            @csrf
+
             <div class="form-group">
                 <div class="font-weight-bold"><label for="email">メールアドレス</label></div>
                 <input type="email" name="email" class="form-control">
@@ -25,7 +27,7 @@
             
         </form>
 
-        <p class="text-center mt-3"><a href="signup" class="register_link" style="color: grey;">新規登録はこちら</a></p>
+        <p class="text-center mt-3"><a href="{{ config('app.url'). '/signup' }}" class="register_link" style="color: grey;">新規登録はこちら</a></p>
 
     </div>
 </div>

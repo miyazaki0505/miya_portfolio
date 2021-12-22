@@ -12,7 +12,7 @@
     <body>
         @include('commons.header')
 
-        <div class="container">
+        <div class="container mt-5 p-5">
             @include('commons.error_messages')
 
             @yield('content')
