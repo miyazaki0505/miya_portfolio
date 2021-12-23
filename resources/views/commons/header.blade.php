@@ -13,15 +13,15 @@
 
             @if (Auth::check())
 
-                <li class="nav-item"><a href="" class="btn btn-outline-secondary mr-1">マイページ</a></li>
-                <li class="nav-item"><a href="" class="btn btn-outline-secondary mr-1">検索</a></li>
+                <li class="nav-item"><a href="" class="nav-link">マイページ</a></li>
+                <li class="nav-item"><a href="" class="nav-link">検索</a></li>
                 <li class="nav-item"><a href="{{ config('app.url'). '/showLogout' }}" class="nav-link">{{ Auth::user()->last_name."さん" }}</a></li>
 
             @else
 
-                <li class="nav-item"><a href="{{ config('app.url'). '/signup' }}" class="btn btn-outline-secondary mr-1">新規登録</a></li>
-                <li class="nav-item"><a href="{{ config('app.url'). '/login' }}" class="btn btn-outline-secondary mr-1">ログイン</a></li>
-                <li class="nav-item"><a href="" class="btn btn-outline-secondary mr-1">検索</a></li>
+                <li class="nav-item"><a href="{{ config('app.url'). '/signup' }}" class="nav-link">新規登録</a></li>
+                <li class="nav-item"><a href="{{ config('app.url'). '/login' }}" class="nav-link">ログイン</a></li>
+                <li class="nav-item"><a href="" class="nav-link">検索</a></li>
 
             @endif
 
