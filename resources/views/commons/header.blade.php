@@ -1,4 +1,4 @@
-<header class="mb-5">
+<header class="fixed-top mb-5">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
         <a class="navbar-brand" href="/">Tsunagu</a>
@@ -10,9 +10,21 @@
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item"><a href="{{ config('app.url'). '/signup' }}" class="nav-link">新規登録</a></li>
-                <li class="nav-item"><a href="" class="nav-link">ログイン</a></li>
+
+            @if (Auth::check())
+
+                <li class="nav-item"><a href="" class="nav-link">マイページ</a></li>
                 <li class="nav-item"><a href="" class="nav-link">検索</a></li>
+                <li class="nav-item"><a href="{{ config('app.url'). '/showLogout' }}" class="nav-link">{{ Auth::user()->last_name."さん" }}</a></li>
+
+            @else
+
+                <li class="nav-item"><a href="{{ config('app.url'). '/signup' }}" class="nav-link">新規登録</a></li>
+                <li class="nav-item"><a href="{{ config('app.url'). '/login' }}" class="nav-link">ログイン</a></li>
+                <li class="nav-item"><a href="" class="nav-link">検索</a></li>
+
+            @endif
+
             </ul>
         </div>
 
