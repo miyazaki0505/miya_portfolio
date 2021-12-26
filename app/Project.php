@@ -26,8 +26,8 @@ class Project extends Model
         return $this->hasMany(Skill::class);
     }
 
-    public function other_requirements()
+    public function otherRequirements()
     {
-        return $this->hasMany(Other_requirement::class);
+        return $this->hasMany(OtherRequirement::class);
     }
 }

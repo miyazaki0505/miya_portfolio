@@ -18,7 +18,7 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->string('project_name', 64);
             $table->integer('work_location');
-            $table->bigInteger('unit_price');
+            $table->integer('unit_price');
             $table->integer('occupation');
             $table->integer('language');
             $table->text('work_content');
