@@ -26,3 +26,5 @@ Route::get('showLogout', function () {
 });
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::get('showdetail/{id}', 'ProjectsController@show')->name('show');
