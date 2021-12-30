@@ -13,8 +13,7 @@ class ProjectsController extends Controller
 {
     public function show($id)
     {
-
-        $project = Project::find($id);
+        $project = Project::findOrFail($id);
         $skills = $project->skills()->get();
         $other_requirements = $project->otherRequirements()->get();
         $company = $project->company()->first();
@@ -23,15 +22,16 @@ class ProjectsController extends Controller
         $occupations = config('occupation');
         $work_locations = config('work_location');
 
-
-        return view('projects.project_detail', [
+        $data = [
             "project" => $project,
-            "languages" => $languages,
-            "occupations" => $occupations,
-            "work_locations" => $work_locations,
-            "skills" => $skills,
-            "other_requirements" => $other_requirements,
-            "company" => $company,
-        ]);
+                "languages" => $languages,
+                "occupations" => $occupations,
+                "work_locations" => $work_locations,
+                "skills" => $skills,
+                "other_requirements" => $other_requirements,
+                "company" => $company,
+        ];
+    
+        return view('projects.project_detail', $data);
     }
 }
