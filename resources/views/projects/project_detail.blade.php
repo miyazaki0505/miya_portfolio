@@ -83,7 +83,7 @@
         <div class="btn-toolbar" role="toolbar">
             <div class="like col-xs-3"><input type="submit" class="btn btn-secondary m-4" value="いいね"></div>
             <div class="application col-xs-3"><input type="submit" class="btn btn-secondary m-4" value="応募"></div>
-            <div class="return col-xs-3"><input type="submit" class="btn btn-secondary m-4" value="戻る"></div>
+            <div class="return col-xs-3"><a class="btn btn-secondary m-4" type="submit" style="color:white;" onclick="history.back(-1)">戻る</a></div>
         </div>
     </div>
 </div>
