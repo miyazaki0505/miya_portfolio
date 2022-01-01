@@ -10,7 +10,7 @@ class UsersController extends Controller
 {
     public function index()
     {
-        $projects = DB::table('projects')->orderBy('id', 'desc')->paginate(5);
+        $projects = Project::orderBy('id', 'desc')->paginate(5);
 
         $languages = config('language');
         $work_locations = config('work_location');
