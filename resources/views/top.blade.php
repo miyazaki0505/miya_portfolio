@@ -26,22 +26,25 @@
                 @endforeach
                 {{ $project->project_name }}
             </h4>
-            <div class="m-1 pt-4">
-                @foreach($work_locations as $key => $work_location)
-                    @if($key == $project->work_location)
-                    <div class="ml-4">勤務地：{{ $work_location }}</div>
-                        @php
-                            break;
-                        @endphp
-                    @endif
-                @endforeach
-                <div class="ml-4">月額報酬：￥{{ number_format($project->unit_price) }}〜</div>
+            <div class="row m-1 pt-4">
+                <div class="col-xs-12">
+                    @foreach($work_locations as $key => $work_location)
+                        @if($key == $project->work_location)
+                        <div class="ml-5">勤務地：{{ $work_location }}</div>
+                            @php
+                                break;
+                            @endphp
+                        @endif
+                    @endforeach
+                </div>
 
+                <div class="col-xs-12 ml-5">月額報酬：￥{{ number_format($project->unit_price) }}〜</div>
             </div>
 
             <div class="text-right">
                 <a href="{{ config('app.url'). "/showDetail/". $project->id }}" type="button" class="btn btn-outline-secondary ml-4">詳細</a>
             </div>
+            
         </div>
 
     </div>
