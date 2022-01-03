@@ -101,5 +101,56 @@ class OtherRequirementsTableSeeder extends Seeder
             'other_requirement' => 'リモートワーク：一部リモート',
             'project_id' => 3,
         ]);
+
+        DB::table('other_requirements')->insert([
+            'other_requirement' => '商談回数：1回',
+            'project_id' => 4,
+        ]);
+
+        DB::table('other_requirements')->insert([
+            'other_requirement' => '募集人数：4人',
+            'project_id' => 4,
+        ]);
+
+        DB::table('other_requirements')->insert([
+            'other_requirement' => '作業開始日：2022/08/01',
+            'project_id' => 4,
+        ]);
+
+        DB::table('other_requirements')->insert([
+            'other_requirement' => '最低稼働日数：週5日',
+            'project_id' => 4,
+        ]);
+
+        DB::table('other_requirements')->insert([
+            'other_requirement' => 'リモートワーク：フルリモート',
+            'project_id' => 4,
+        ]);
+
+        DB::table('other_requirements')->insert([
+            'other_requirement' => '商談回数：1回',
+            'project_id' => 5,
+        ]);
+
+        DB::table('other_requirements')->insert([
+            'other_requirement' => '募集人数：2人',
+            'project_id' => 5,
+        ]);
+
+        DB::table('other_requirements')->insert([
+            'other_requirement' => '作業開始日：2022/04/01',
+            'project_id' => 5,
+        ]);
+
+        DB::table('other_requirements')->insert([
+            'other_requirement' => '最低稼働日数：週4日',
+            'project_id' => 5,
+        ]);
+
+        DB::table('other_requirements')->insert([
+            'other_requirement' => 'リモートワーク：フルリモート',
+            'project_id' => 5,
+        ]);
+
     }
 }
