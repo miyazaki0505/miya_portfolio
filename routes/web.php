@@ -11,12 +11,6 @@
 |
 */
 
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
-*/
-
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 
@@ -32,3 +26,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('showDetail/{id}', 'ProjectsController@show')->name('show');
 
 Route::get('/', 'UsersController@index')->name('top');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('match', 'UsersController@match')->name('match');
+});

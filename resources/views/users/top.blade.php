@@ -42,12 +42,10 @@
                 </div>
             </div>
 
-            
             <div class="text-right d-flex align-items-center">
                 <div class="col-sm-12"><a href="{{ config('app.url'). "/showDetail/". $project->id }}" type="button" class="btn btn-outline-secondary ml-4">詳細</a></div>
             </div>
  
-            
         </div>
     </div>
 

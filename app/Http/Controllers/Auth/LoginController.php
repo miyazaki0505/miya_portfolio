@@ -28,7 +28,7 @@ class LoginController extends Controller
      */
     protected function redirectTo()
     {
-        return (config('app.url'). '/');
+        return (config('app.url'). '/match');
     }
 
     /**

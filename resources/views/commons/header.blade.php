@@ -13,7 +13,7 @@
 
             @if (Auth::check())
 
-                <li class="nav-item"><a href="" class="nav-link">マイページ</a></li>
+                <li class="nav-item"><a href="{{ config('app.url'). '/match' }}" class="nav-link">マイページ</a></li>
                 <li class="nav-item"><a href="" class="nav-link">検索</a></li>
                 <li class="nav-item"><a href="{{ config('app.url'). '/showLogout' }}" class="nav-link">{{ Auth::user()->last_name."さん" }}</a></li>
 
