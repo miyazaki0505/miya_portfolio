@@ -51,7 +51,7 @@
 
     @endforeach
 
-    @if(empty($projects))
+    @if($projects->isEmpty())
         <div class="text-center mt-4">
             <h2>マッチング</h2>
             <p class="mt-4">{{ "現在、". $user_last_name. "さんのご希望の条件と一致する案件はございませんでした。" }}</p>

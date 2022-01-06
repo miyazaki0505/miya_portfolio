@@ -59,5 +59,21 @@ class UsersTableSeeder extends Seeder
             'language' => 2,
             'about_myself' => '私は、業務効率改善の社内システムの新規開発経験があり、社内営業部門の業務効率改善を目的としたプロジェクトに参画しておりました。他にも小規模な社内システムの開発経験は複数あります。',
         ]);
+
+        DB::table('users')->insert([
+            'last_name' => '徳田',
+            'first_name' => '裕一',
+            'last_name_ruby' => 'とくだ',
+            'first_name_ruby' => 'ゆういち',
+            'birth_year' => 1995,
+            'birth_month' => 4,
+            'birth_day' => 15,
+            'email' => 'tokuda@sample.com',
+            'password' => bcrypt('tokuda'),
+            'work_location' => 14,
+            'occupation' => 10,
+            'language' => 11,
+            'about_myself' => '現在自社開発に参画中。言語使用歴4年。',
+        ]);
     }
 }

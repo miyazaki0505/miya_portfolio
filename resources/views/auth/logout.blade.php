@@ -19,7 +19,7 @@
             
             </form>
 
-                <div class="text-center"><a href="{{ config('app.url'). '/' }}" class="turn_back mt-2" style="color: grey;">戻る</a></div>
+            <div class="text-center"><a class="turn_back mt-2" type="submit" style="color: grey;" onclick="history.back(-1)">戻る</a></div>
 
         </div>
     </div>
