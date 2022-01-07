@@ -11,24 +11,19 @@
 |
 */
 
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
-*/
-
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
-
 Route::get('showLogout', function () {
     return view('auth.logout');
 });
-
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('showDetail/{id}', 'ProjectsController@show')->name('show');
+Route::get('/', 'ProjectsController@index')->name('top');
 
-Route::get('/', 'UsersController@index')->name('top');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('match', 'ProjectsController@match')->name('match');
+});
