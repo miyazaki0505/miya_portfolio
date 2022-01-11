@@ -119,12 +119,8 @@ class ProjectsController extends Controller
             $query->where('language', $search_language)->get();
         }
 
-        if (!is_null($search_unit_price) && $search_unit_price != 800000) {
-            $query->whereBetween('unit_price', [$search_unit_price, $search_unit_price+99999])->get();
-        }
-
-        if ($search_unit_price == 800000) {
-            $query->where('unit_price', '>=', 800000)->get();  
+        if (!is_null($search_unit_price)) {
+            $query->where('unit_price', '>=', $search_unit_price)->get();
         }
 
         if (!is_null($search_keyword)) {

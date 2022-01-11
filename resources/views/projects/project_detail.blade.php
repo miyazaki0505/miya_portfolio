@@ -81,7 +81,34 @@
 <div class="row justify-content-center">
     <div class="btn-group">
         <div class="btn-toolbar" role="toolbar">
-            <div class="like col-xs-3"><input type="submit" class="btn btn-secondary m-4" value="いいね"></div>
+
+        @if (Auth::check())
+
+            @if (Auth::user()->is_liking($project->id))
+
+                <form method="post" action="{{ config('app.url'). "/showDetail/". $project->id. "/dislike" }}" class="like-form">
+                    @csrf
+                    <div class="dislike col-xs-3"><input type="submit" class="btn btn-danger m-4" value="いいねを外す"></div>
+                </form>
+
+            @else
+
+                <form method="post" action="{{ config('app.url'). "/showDetail/". $project->id. "/like" }}" class="like-form">
+                    @csrf
+                    <div class="like col-xs-3"><input type="submit" class="btn btn-danger m-4" value="いいね"></div>
+                </form>
+
+            @endif
+
+        @else
+
+            <form method="get" action="{{ config('app.url'). '/showLogin' }}" class="like-form">
+                @csrf
+                <div class="like col-xs-3"><input type="submit" class="btn btn-secondary m-4" value="いいね"></div>
+            </form>
+
+        @endif
+
             <div class="application col-xs-3"><input type="submit" class="btn btn-secondary m-4" value="応募"></div>
             <div class="return col-xs-3"><a class="btn btn-secondary m-4" type="submit" style="color:white;" onclick="history.back(-1)">戻る</a></div>
         </div>
