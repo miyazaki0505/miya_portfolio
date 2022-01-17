@@ -144,8 +144,8 @@ class ProjectsController extends Controller
 
         if (!is_null($search_keyword)) {
             $query->where(function ($query) use ($search_keyword) {
-                $query->where('project_name', 'like', '%' . $search_keyword . '%')
-                    ->orWhere('work_content', 'like', '%' . $search_keyword . '%');
+                $query->where('project_name', 'like', '%' . self::escapeLike($search_keyword) . '%')
+                    ->orWhere('work_content', 'like', '%' . self::escapeLike($search_keyword) . '%');
             });
         }
 
