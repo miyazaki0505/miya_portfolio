@@ -21,20 +21,11 @@ Route::get('showLogout', function () {
 });
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::get('showLogin', function () {
-    return view('auth.show_login');
-});
-
 Route::get('showDetail/{id}', 'ProjectsController@show')->name('show');
 Route::get('/', 'ProjectsController@index')->name('top');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('match', 'ProjectsController@match')->name('match');
-    Route::get('showLike', 'LikeController@showLike')->name('showLike');
-    Route::group(['prefix'=>'showDetail/{id}'],function () {
-        Route::post('like','LikeController@store')->name('like');
-        Route::delete('unlike','LikeController@destroy')->name('unlike');
-    });
 });
 
 Route::get('searchInput', 'ProjectsController@searchInput')->name('searchInput');

@@ -30,9 +30,4 @@ class Project extends Model
     {
         return $this->hasMany(OtherRequirement::class);
     }
-
-    public function users()
-    {
-        return $this->belongsToMany(User::class, 'likes', 'project_id', 'user_id')->withTimestamps();
-    }
 }
