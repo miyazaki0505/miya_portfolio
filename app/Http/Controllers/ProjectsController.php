@@ -143,10 +143,16 @@ class ProjectsController extends Controller
         }
 
         if (!is_null($search_keyword)) {
-            $query->where(function ($query) use ($search_keyword) {
-                $query->where('project_name', 'like', '%' . self::escapeLike($search_keyword) . '%')
-                    ->orWhere('work_content', 'like', '%' . self::escapeLike($search_keyword) . '%');
-            });
+            $space_conversion = mb_convert_kana($search_keyword, 's');
+
+            $searched_words = preg_split('/[\s,]+/', $space_conversion, -1, PREG_SPLIT_NO_EMPTY);
+
+            foreach($searched_words as $searched_word) {
+                $query->where(function ($query) use ($searched_word) {
+                    $query->where('project_name', 'like', '%' . self::escapeLike($searched_word) . '%')
+                        ->orWhere('work_content', 'like', '%' . self::escapeLike($searched_word) . '%');
+                });
+            }
         }
 
         $projects = $query->orderBy('id', 'asc')->paginate(5);

@@ -90,7 +90,7 @@
 
                 <div class="form-group">
                     <div class="font-weight-bold"><label for="language">フリーワード</label></div>
-                        <input type="text" name="keyword" value="{{ $search_keyword }} @if( isset($old_keyword)) {{ $old_keyword }} @endif" class="form-control" placeholder="フリーワードを入力ください">
+                        <input type="text" name="keyword" value="{{ $search_keyword }}@if(isset($old_keyword)){{ $old_keyword }}@endif" class="form-control" placeholder="フリーワードを入力ください">
                     </div>
                 </div>
 
