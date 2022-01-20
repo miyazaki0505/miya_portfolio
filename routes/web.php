@@ -27,3 +27,6 @@ Route::get('/', 'ProjectsController@index')->name('top');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('match', 'ProjectsController@match')->name('match');
 });
+
+Route::get('searchInput', 'ProjectsController@searchInput')->name('searchInput');
+Route::get('search', 'ProjectsController@search')->name('search');

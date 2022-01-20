@@ -4,12 +4,12 @@
 
     @include('users.tabs')
 
-    @foreach($projects as $project)
-
     <div class="text-center mt-4">
-        <h2>マッチング</h2>
-        <p>{{ $user_last_name. "さんのご希望の条件と一致する案件はこちらです。" }}</p>
+        <h2 style="color: red;">マッチング</h2>
+        <p class="mt-4">{{ $user_last_name. "さんのご希望の条件と一致する案件はこちらです。" }}</p>
     </div>
+
+    @foreach($projects as $project)
 
     <div class="card m-5">
         <div class="m-4 row">
@@ -51,9 +51,13 @@
 
     @endforeach
 
+    @if($projects_count > 5)
+        <div class="pagination justify-content-center">{{ $projects->links() }}</div>
+    @endif
+
     @if($projects->isEmpty())
         <div class="text-center mt-4">
-            <h2>マッチング</h2>
+            <h2 style="color: red;">マッチング</h2>
             <p class="mt-4">{{ "現在、". $user_last_name. "さんのご希望の条件と一致する案件はございませんでした。" }}</p>
         </div>
     @endif
