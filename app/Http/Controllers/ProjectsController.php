@@ -63,6 +63,11 @@ class ProjectsController extends Controller
         $query->where('occupation', $user_occupation);
         $query->where('language', $user_language);
         $projects = $query->get();
+        $projects_count = count($projects);
+
+        if($projects_count > 5) {
+            $projects = $users->likes()->orderBy('id', 'asc')->paginate(5);
+        }
 
         $languages = config('language');
         $work_locations = config('work_location');
@@ -74,6 +79,7 @@ class ProjectsController extends Controller
             "user_work_location" => $user_work_location,
             "user_occupation" => $user_occupation,
             "user_language" => $user_language,
+            "projects_count" => $projects_count,
             "languages" => $languages,
             "work_locations" => $work_locations,
         ];
