@@ -83,11 +83,11 @@
         <div class="btn-toolbar" role="toolbar">
             @if (Auth::check())
 
-                @if (Auth::user()->is_liking($project->id))
+                @if (Auth::user()->isLiking($project->id))
 
                     <form method="post" action="{{ config('app.url'). "/showDetail/". $project->id. "/unlike" }}" class="like-form">
                         @csrf
-                        <div class="dislike col-xs-3"><input type="submit" class="btn btn-danger m-4" value="いいねを外す"></div>
+                        <div class="unlike col-xs-3"><input type="submit" class="btn btn-danger m-4" value="いいねを外す"></div>
                     </form>
 
                 @else

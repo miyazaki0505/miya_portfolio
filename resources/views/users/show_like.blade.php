@@ -52,15 +52,14 @@
 
         @endforeach
 
-        @if($projects_count > 5)
-            <div class="pagination justify-content-center">{{ $projects->links() }}</div>
-        @endif
-
+        <div class="pagination justify-content-center">{{ $projects->links() }}</div>
+        
     @else
     
         <div class="text-center mt-4">
             <h2 style="color: red;">いいね</h2>
-            <p class="mt-4">気になる案件がございましたらぜひいいねしてみてください！</p>
+            <p class="mt-4">現在いいねされた案件はありません。</p>
+            <p>気になる案件がございましたらぜひいいねしてみてください！</p>
         </div>
     @endif
 

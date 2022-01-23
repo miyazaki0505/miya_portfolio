@@ -54,14 +54,14 @@ class User extends Authenticatable
         return $this->belongsToMany(Project::class, 'likes', 'user_id', 'project_id')->withTimestamps();
     }
 
-    public function is_liking($projectId)
+    public function isLiking($projectId)
     {
         return $this->likes()->where('project_id', $projectId)->exists();
     }
 
     public function like($projectId)
     {
-        $exist = $this->is_liking($projectId);
+        $exist = $this->isLiking($projectId);
 
         if(!$exist) { 
             $this->likes()->attach($projectId);
@@ -70,7 +70,7 @@ class User extends Authenticatable
 
     public function unlike($projectId)
     {
-        $exist = $this->is_liking($projectId);
+        $exist = $this->isLiking($projectId);
 
         if ($exist) {
             $this->likes()->detach($projectId);

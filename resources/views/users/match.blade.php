@@ -52,9 +52,7 @@
 
         @endforeach
 
-        @if($projects_count > 5)
-            <div class="pagination justify-content-center">{{ $projects->links() }}</div>
-        @endif
+        <div class="pagination justify-content-center">{{ $projects->links() }}</div>
 
     @else
         <div class="text-center mt-4">

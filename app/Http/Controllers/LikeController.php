@@ -15,12 +15,7 @@ class LikeController extends Controller
 
         $users->like($id);
 
-        $projects = $users->likes()->get();
-        $projects_count = count($projects);
-
-        if($projects_count > 5) {
-            $projects = $users->likes()->orderBy('id', 'asc')->paginate(5);
-        }
+        $projects = $users->likes()->orderBy('id', 'desc')->paginate(5);
 
         $languages = config('language');
         $work_locations = config('work_location');
@@ -28,7 +23,6 @@ class LikeController extends Controller
         return view('users.show_like', [
             "user_last_name" => $user_last_name,
             "projects" => $projects,
-            "projects_count" => $projects_count,
             "languages" => $languages,
             "work_locations" => $work_locations,
         ]);
@@ -41,12 +35,7 @@ class LikeController extends Controller
 
         $users->unlike($id);
 
-        $projects = $users->likes()->get();
-        $projects_count = count($projects);
-
-        if($projects_count > 5) {
-            $projects = $users->likes()->orderBy('id', 'asc')->paginate(5);
-        }
+        $projects = $users->likes()->orderBy('id', 'desc')->paginate(5);
 
         $languages = config('language');
         $work_locations = config('work_location');
@@ -54,7 +43,6 @@ class LikeController extends Controller
         return view('users.show_like', [
             "user_last_name" => $user_last_name,
             "projects" => $projects,
-            "projects_count" => $projects_count,
             "languages" => $languages,
             "work_locations" => $work_locations,
         ]);
@@ -65,12 +53,7 @@ class LikeController extends Controller
         $users = \Auth::user();
         $user_last_name = $users->last_name;
 
-        $projects = $users->likes()->get();
-        $projects_count = count($projects);
-
-        if($projects_count > 5) {
-            $projects = $users->likes()->orderBy('id', 'asc')->paginate(5);
-        }
+        $projects = $users->likes()->orderBy('id', 'desc')->paginate(5);
 
         $languages = config('language');
         $work_locations = config('work_location');
@@ -78,7 +61,6 @@ class LikeController extends Controller
         return view('users.show_like', [
             "user_last_name" => $user_last_name,
             "projects" => $projects,
-            "projects_count" => $projects_count,
             "languages" => $languages,
             "work_locations" => $work_locations,
         ]);
