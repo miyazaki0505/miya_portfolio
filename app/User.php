@@ -49,14 +49,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function likes()
+    public function likeProjects()
     {
-        return $this->belongsToMany(Project::class, 'likes', 'user_id', 'project_id')->withTimestamps();
+        return $this
+        ->belongsToMany(Project::class, 'likeProjects', 'user_id', 'project_id')->withTimestamps()
+        ->withPivot('id')
+        ->orderBy('likeProjects.id', 'desc');
     }
 
     public function isLiking($projectId)
     {
-        return $this->likes()->where('project_id', $projectId)->exists();
+        return $this->likeProjects()->where('project_id', $projectId)->exists();
     }
 
     public function like($projectId)
@@ -64,7 +67,7 @@ class User extends Authenticatable
         $exist = $this->isLiking($projectId);
 
         if(!$exist) { 
-            $this->likes()->attach($projectId);
+            $this->likeProjects()->attach($projectId);
         }
     }
 
@@ -73,7 +76,7 @@ class User extends Authenticatable
         $exist = $this->isLiking($projectId);
 
         if ($exist) {
-            $this->likes()->detach($projectId);
+            $this->likeProjects()->detach($projectId);
         }
     }
 }
