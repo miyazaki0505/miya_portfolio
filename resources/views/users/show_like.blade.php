@@ -6,8 +6,8 @@
 
     @if($projects->isNotEmpty())
         <div class="text-center mt-4">
-            <h2 style="color: red;">マッチング</h2>
-            <p class="mt-4">{{ $user_last_name. "さんのご希望の条件と一致する案件はこちらです。" }}</p>
+            <h2 style="color: red;">いいね</h2>
+            <p>{{ $user_last_name. "さんのいいねした案件はこちらです。" }}</p>
         </div>
 
         @foreach($projects as $project)
@@ -53,11 +53,13 @@
         @endforeach
 
         <div class="pagination justify-content-center">{{ $projects->links() }}</div>
-
+        
     @else
+    
         <div class="text-center mt-4">
-            <h2 style="color: red;">マッチング</h2>
-            <p class="mt-4">{{ "現在、". $user_last_name. "さんのご希望の条件と一致する案件はございませんでした。" }}</p>
+            <h2 style="color: red;">いいね</h2>
+            <p class="mt-4">現在いいねされた案件はありません。</p>
+            <p>気になる案件がございましたらぜひいいねしてみてください！</p>
         </div>
     @endif
 

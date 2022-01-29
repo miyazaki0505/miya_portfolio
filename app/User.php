@@ -48,4 +48,35 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function likeProjects()
+    {
+        return $this
+        ->belongsToMany(Project::class, 'likeProjects', 'user_id', 'project_id')->withTimestamps()
+        ->withPivot('id')
+        ->orderBy('likeProjects.id', 'desc');
+    }
+
+    public function isLiking($projectId)
+    {
+        return $this->likeProjects()->where('project_id', $projectId)->exists();
+    }
+
+    public function like($projectId)
+    {
+        $exist = $this->isLiking($projectId);
+
+        if(!$exist) { 
+            $this->likeProjects()->attach($projectId);
+        }
+    }
+
+    public function unlike($projectId)
+    {
+        $exist = $this->isLiking($projectId);
+
+        if ($exist) {
+            $this->likeProjects()->detach($projectId);
+        }
+    }
 }
