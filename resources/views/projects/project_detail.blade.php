@@ -107,7 +107,34 @@
                 </form>
 
             @endif
-            <div class="application col-xs-3"><input type="submit" class="btn btn-secondary m-4" value="応募"></div>
+
+            @if (Auth::check())
+
+                @if(Auth::user()->isApplying($project->id))
+                
+                    <form method="get" action="{{ config('app.url'). "/showDetail/". $project->id. "/already" }}" class="application-form">
+                        @csrf
+                        <div class="apply col-xs-3"><input type="submit" class="btn btn-secondary m-4" value="応募"></div>
+                    </form>
+
+                @else
+
+                    <form method="get" action="{{ config('app.url'). "/showDetail/". $project->id. "/applyConfirm" }}" class="application-form">
+                        @csrf
+                        <div class="apply col-xs-3"><input type="submit" class="btn btn-secondary m-4" value="応募"></div>
+                    </form>
+
+                @endif
+
+            @else
+
+                <form method="get" action="{{ config('app.url'). '/showLogin' }}" class="application-form">
+                    @csrf
+                    <div class="apply col-xs-3"><input type="submit" class="btn btn-secondary m-4" value="応募"></div>
+                </form>
+
+            @endif
+
             <div class="return col-xs-3"><a class="btn btn-secondary m-4" type="submit" style="color:white;" onclick="history.back(-1)">戻る</a></div>
         </div>
     </div>

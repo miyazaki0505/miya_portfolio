@@ -35,4 +35,9 @@ class Project extends Model
     {
         return $this->belongsToMany(User::class, 'likeProjects', 'project_id', 'user_id')->withTimestamps();
     }
+
+    public function appliedUsers()
+    {
+        return $this->belongsToMany(User::class, 'applications', 'project_id', 'user_id')->withTimestamps();
+    }
 }

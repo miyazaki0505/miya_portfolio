@@ -79,4 +79,34 @@ class User extends Authenticatable
             $this->likeProjects()->detach($projectId);
         }
     }
+
+    public function applyProjects()
+    {
+        return $this->belongsToMany(Project::class, 'applications', 'user_id', 'project_id')->withTimestamps()
+        ->withPivot('id')
+        ->orderBy('applications.id', 'desc');
+    }
+
+    public function isApplying($projectId)
+    {
+        return $this->applyProjects()->where('project_id', $projectId)->exists();
+    }
+
+    public function apply($projectId)
+    {
+        $exist = $this->isApplying($projectId);
+
+        if(!$exist) { 
+            $this->applyProjects()->attach($projectId);
+        }
+    }
+
+    public function alreadyApply($projectId)
+    {
+        $exist = $this->isApplying($projectId);
+
+        if($exist) {
+            return view('projects.already_applied');
+        }
+    }
 }
