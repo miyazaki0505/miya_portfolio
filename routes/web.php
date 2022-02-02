@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('like','LikeController@store')->name('like');
         Route::post('unlike','LikeController@destroy')->name('unlike');
         Route::post('apply', 'ApplicationController@store')->name('apply');
-        Route::get('already', function () {
+        Route::get('alreadyApply', function () {
             return view('projects.already_applied');
         });
     });

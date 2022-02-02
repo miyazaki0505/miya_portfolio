@@ -17,7 +17,7 @@
                 <div class="col-md-10">
 
                     <h4>
-                        @foreach($languages as $key => $language)
+                        @foreach($choice_languages as $key => $language)
                             @if($key === $project->language)
                                 【{{ $language }}】
                                 @php
@@ -29,7 +29,7 @@
                     </h4>
                     <div class="m-1 pt-4 row">
                         <div class="col-sx-12">
-                            @foreach($work_locations as $key => $work_location)
+                            @foreach($choice_work_locations as $key => $work_location)
                                 @if($key === $project->work_location)
                                 <div class="ml-4">勤務地：{{ $work_location }}</div>
                                     @php

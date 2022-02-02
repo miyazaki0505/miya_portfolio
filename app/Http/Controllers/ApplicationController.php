@@ -24,27 +24,27 @@ class ApplicationController extends Controller
         $user_email = $user->email;
         $user_about_myself = $user->about_myself;
 
-        $languages = config('language');
-        $occupations = config('occupation');
-        $work_locations = config('work_location');
+        $choice_languages = config('language');
+        $choice_occupations = config('occupation');
+        $choice_work_locations = config('work_location');
 
-        foreach($languages as $key => $value) {
+        foreach($choice_languages as $key => $value) {
             if($key == $user->language) {
-                $language = $languages[$key];
+                $language = $choice_languages[$key];
                 break;
             }
         }
 
-        foreach($occupations as $key => $value) {
+        foreach($choice_occupations as $key => $value) {
             if($key == $user->occupation) {
-                $occupation = $occupations[$key];
+                $occupation = $choice_occupations[$key];
                 break;
             }
         }
 
-        foreach($work_locations as $key => $value) {
+        foreach($choice_work_locations as $key => $value) {
             if($key == $user->work_location) {
-                $work_location = $work_locations[$key];
+                $work_location = $choice_work_locations[$key];
                 break;
             }
         }
@@ -77,14 +77,14 @@ class ApplicationController extends Controller
         return redirect(config('app.url'). '/completed');
     }
 
-    public function already($id)
+    public function alreadyApply($id)
     {
         $project = Project::findOrFail($id);
         $user = \Auth::user();
 
         $user->alreadyApply($id);
 
-        return redirect(config('app.url'). '/already');
+        return redirect(config('app.url'). '/alreadyApply');
     }
 
     public function showApplication()
@@ -94,14 +94,14 @@ class ApplicationController extends Controller
 
         $projects = $user->applyProjects()->paginate(5);
 
-        $languages = config('language');
-        $work_locations = config('work_location');
+        $choice_languages = config('language');
+        $choice_work_locations = config('work_location');
 
         return view('projects.application_history', [
             "user_last_name" => $user_last_name,
             "projects" => $projects,
-            "languages" => $languages,
-            "work_locations" => $work_locations,
+            "choice_languages" => $choice_languages,
+            "choice_work_locations" => $choice_work_locations,
         ]);
     }
 }

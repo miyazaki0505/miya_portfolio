@@ -112,7 +112,7 @@
 
                 @if(Auth::user()->isApplying($project->id))
                 
-                    <form method="get" action="{{ config('app.url'). "/showDetail/". $project->id. "/already" }}" class="application-form">
+                    <form method="get" action="{{ config('app.url'). "/showDetail/". $project->id. "/alreadyApply" }}" class="application-form">
                         @csrf
                         <div class="apply col-xs-3"><input type="submit" class="btn btn-secondary m-4" value="応募"></div>
                     </form>
@@ -135,7 +135,7 @@
 
             @endif
 
-            <div class="return col-xs-3"><a class="btn btn-secondary m-4" type="submit" style="color:white;" onclick="history.back(-1)">戻る</a></div>
+            <div class="return col-xs-3"><a class="btn btn-outline-secondary m-4" type="submit" onclick="history.back(-1)">戻る</a></div>
         </div>
     </div>
 </div>
