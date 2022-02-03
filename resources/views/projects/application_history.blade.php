@@ -6,8 +6,8 @@
 
     @if($projects->isNotEmpty())
         <div class="text-center mt-4">
-            <h2 style="color: red;">いいね</h2>
-            <p class="mt-4">{{ $user_last_name. "さんのいいねした案件はこちらです。" }}</p>
+            <h2 style="color: red;">応募履歴</h2>
+            <p class="mt-4">{{ $user_last_name. "さんの応募した案件はこちらです。" }}</p>
         </div>
 
         @foreach($projects as $project)
@@ -17,7 +17,7 @@
                 <div class="col-md-10">
 
                     <h4>
-                        @foreach($languages as $key => $language)
+                        @foreach($choice_languages as $key => $language)
                             @if($key === $project->language)
                                 【{{ $language }}】
                                 @php
@@ -29,7 +29,7 @@
                     </h4>
                     <div class="m-1 pt-4 row">
                         <div class="col-sx-12">
-                            @foreach($work_locations as $key => $work_location)
+                            @foreach($choice_work_locations as $key => $work_location)
                                 @if($key === $project->work_location)
                                 <div class="ml-4">勤務地：{{ $work_location }}</div>
                                     @php
@@ -57,9 +57,9 @@
     @else
     
         <div class="text-center mt-4">
-            <h2 style="color: red;">いいね</h2>
-            <p class="mt-4">現在いいねされた案件はありません。</p>
-            <p>気になる案件がございましたらぜひいいねしてみてください！</p>
+            <h2 style="color: red;">応募履歴</h2>
+            <p class="mt-4">現在応募された案件はありません。</p>
+            <p>気になる案件がございましたらぜひ応募してみてください！</p>
         </div>
     @endif
 
